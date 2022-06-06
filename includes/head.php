@@ -1,3 +1,4 @@
+<?php session_start();  ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,23 +29,84 @@
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="index.php">About</a></li>
 
-<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Apply Loan
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="houseloann.php">House Loan </a></li>
-            <li><a class="dropdown-item" href="carloann.php">Car Loan </a></li>
-            <li><a class="dropdown-item" href="#">Business Loan </a></li>
-            <li><a class="dropdown-item" href="personalloann.php">Personal Loan </a></li>
-          </ul>
-        </li>
+                    <li class="nav-item dropdown">
+                        <?php  if(!isset($_SESSION['username']))
+                        {
+
+
+                        
+
+
+                         ?>
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Apply Loan
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="##">House Loan </a></li>
+                                <li><a class="dropdown-item" href="##">Car Loan </a></li>
+                                <li><a class="dropdown-item" href="##">Business Loan </a></li>
+                                <li><a class="dropdown-item" href="##">Personal Loan </a></li>
+                              </ul>
+                            </li>
 
                         <li class="nav-item"><a class="nav-link" href="##">Savings</a></li>
                         <li class="nav-item"><a class="nav-link" href="##">Pay Bills</a></li>
                         <li class="nav-item"><a class="nav-link" href="##portfolio">Portfolio</a></li>
                         <li class="nav-item"><a class="nav-link" href="clients/index.php">Login</a></li>
+
+                  
+
                     </ul>
+                      <?php }else{  ?>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Apply Loan
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="houseloann.php">House Loan </a></li>
+                                <li><a class="dropdown-item" href="carloann.php">Car Loan </a></li>
+                                <li><a class="dropdown-item" href="#">Business Loan </a></li>
+                                <li><a class="dropdown-item" href="personalloann.php">Personal Loan </a></li>
+                              </ul>
+                            </li>
+
+                        <li class="nav-item"><a class="nav-link" href="##">Savings</a></li>
+                        <li class="nav-item"><a class="nav-link" href="##">Pay Bills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="##portfolio">Portfolio</a></li>
+
+                  
+
+                    </ul>
+        <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle ms-2"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <?php 
+            $con1= mysqli_connect("localhost","root","","bank");
+             $user=$_SESSION['username'];
+            $sql="SELECT * FROM `client_registration` WHERE  `username`='$user';" ;
+            $query=mysqli_query($con1,$sql);
+            $row=mysqli_fetch_array($query); 
+            ?>
+
+           <span> <?php echo $row['name'] ."  ". $row['lastname'];  ?></span>
+            </a>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="profile.php?"><i class="bi bi-person-badge-fill"></i> Profile</a></li>
+            <li><a class="dropdown-item" href="Settings.php"><i class="bi bi-gear-fill"></i> Settings</a></li>
+            <li>
+              <a class="dropdown-item" href="clients/logout.php"><i class="bi bi-door-open-fill"></i> Log-out</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+  <?php }  ?>
                 </div>
             </div>
         </nav>
