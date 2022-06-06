@@ -37,6 +37,7 @@ class Member
         }
         return $result;
     }
+
     /**
      * to check if the email already exists
      *
@@ -91,8 +92,9 @@ class Member
             }
             $query = 'INSERT INTO client_registration (name,middlename,lastname,contact,address,gender,birthdate,citizenship,barangay_id, username, password, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
 )';
-                $paramType = 'ssssssssssss';
-                $paramValue = array(
+            $paramType = 'ssssssssssss';
+            $paramValue = array(
+			
 				$_POST["name"],
 				$_POST["middlename"],
 				$_POST["lastname"],
@@ -155,9 +157,7 @@ class Member
             session_start();
             $_SESSION["username"] = $memberRecord[0]["username"];
             session_write_close();
-            
-            $url = "../index.php";
-
+            $url = "./home.php";
             header("Location: $url");
         } else if ($loginPassword == 0) {
             $loginStatus = "Invalid username or password.";

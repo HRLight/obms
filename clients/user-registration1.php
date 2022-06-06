@@ -14,7 +14,7 @@ if (! empty($_POST["signup-btn"])) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title> OBMS BANK </title>
+        <title> IT BANK </title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -46,53 +46,24 @@ if (! empty($_POST["signup-btn"])) {
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="../index.php">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
 
 <li class="nav-item dropdown">
-          <?php if(isset($_SESSION['username'])){
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Apply Loan
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">House Loan </a></li>
+            <li><a class="dropdown-item" href="#">Car Loan </a></li>
+            <li><a class="dropdown-item" href="#">Business Loan </a></li>
+            <li><a class="dropdown-item" href="#">Personal Loan </a></li>
+          </ul>
+        </li>
 
-                                  ?>
-                                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Apply Loan
-                                  </a>
-                                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="./houseloan.php">House Loan </a></li>
-                                    <li><a class="dropdown-item" href="./carloans.php">Car Loan </a></li>
-                                    <li><a class="dropdown-item" href="##">Business Loan </a></li>
-                                    <li><a class="dropdown-item" href="./personalloan.php">Personal Loan </a></li>
-                                  </ul>
-                             </li>
-
-                        <li class="nav-item"><a class="nav-link" href="##">Savings</a></li>
-                        <li class="nav-item"><a class="nav-link" href="##">Pay Bills</a></li>
-                        <li class="nav-item"><a class="nav-link" href="##">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="logout.php">Log - out</a></li>
-
-                        <?php 
-
-                        }else { 
-                                 ?>
-                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Apply Loan
-                                  </a>
-                                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">House Loan </a></li>
-                                    <li><a class="dropdown-item" href="#">Car Loan </a></li>
-                                    <li><a class="dropdown-item" href="##">Business Loan </a></li>
-                                    <li><a class="dropdown-item" href="#">Personal Loan </a></li>
-                                  </ul>
-                             </li>
-
-                        <li class="nav-item"><a class="nav-link" href="##">Savings</a></li>
-                        <li class="nav-item"><a class="nav-link" href="##">Pay Bills</a></li>
-                        <li class="nav-item"><a class="nav-link" href="##">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.php">Login</a></li>
-
-
-
-
-
-        <?php                        } ?>
+                        <li class="nav-item"><a class="nav-link" href="#">Savings</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Pay Bills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="clients/index.php">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -288,7 +259,7 @@ if (! empty($_POST["signup-btn"])) {
 <script>
 
 
-
+	<script>
 function signupValidation() {
 	var valid = true;
 
