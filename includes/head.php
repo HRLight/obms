@@ -97,8 +97,8 @@
             </a>
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="profile.php?"><i class="bi bi-person-badge-fill"></i> Profile</a></li>
-            <li><a class="dropdown-item" href="Settings.php"><i class="bi bi-gear-fill"></i> Settings</a></li>
+            <li><a class="dropdown-item" href="profilehis.php"><i class="bi bi-person-badge-fill"></i> Profile</a></li>
+            <li><a class="dropdown-item" href="payment.php"><i class="bi bi-gear-fill"></i> Pay Loan </a></li>
             <li>
               <a class="dropdown-item" href="clients/logout.php"><i class="bi bi-door-open-fill"></i> Log-out</a>
             </li>
