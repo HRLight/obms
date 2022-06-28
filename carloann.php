@@ -53,12 +53,12 @@ $i=generatekey();
   //image 
     $name_firstid= $_FILES['firstid']['name'];
     $type_firstid= $_FILES['firstid']['type'];
-    $data_firstid= $_FILES['firstid']['tmp_name'];
+    $data_firstid= addslashes(file_get_contents($_FILES['firstid']['tmp_name']));
 
-//image 
+  //image 
   $name_secondid= $_FILES['secondid']['name'];
     $type_secondid= $_FILES['secondid']['type'];
-    $data_secondid= $_FILES['secondid']['tmp_name'];
+    $data_secondid= addslashes(file_get_contents($_FILES['secondid']['tmp_name']));
 
 
       $sql  = "INSERT INTO `car_loans`(`id`, `car_type`,`loan_term`, `unit`, `vehicle_price`, `loan_amount`, `downpayment`, `fname`, `mname`, `lname`, `sex`, `civil_status`, `home_address`, `perma_address`, `date_of_birth`, `place_of_birth`, `mobile_no`, `email_address`, `tin_sss_gsis_no`, `source_of_income`, `monthly_income`, `employeer_name`, `position`,`companyname`,`bankname`,`accountnum`,`name_firstid`,`type_firstid`,`data_firstid`,`name_secondid`,`type_secondid`,`data_secondid`) VALUES ('$id','$car_type','$loan_term','$unit','$vehicle_price','$loan_amount','$downpayment','$fname','$mname','$lname','$sex','$civil_status','$home_address','$perma_address','$date_of_birth','$place_of_birth','$mobile_no','$email_address','$tin_sss_gsis_no','$source_of_income','$monthly_income','$employeer_name','$position','$companyname','$bankname','$accountnum','$name_firstid','$type_firstid','$data_firstid','$name_secondid','$type_secondid','$data_secondid')";

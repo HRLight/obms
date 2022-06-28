@@ -44,17 +44,25 @@ $i=generatekey();
   $companyname = $_POST['companyname'];
   $bankname = $_POST['bankname'];
   $accountnum = $_POST['accountnum'];
-  $firstid = $_POST['firstid'];
-  $secondid = $_POST['secondid'];
-  $thirdid = $_POST['thirdid'];
   
+   //image 
+    $name_firstid= $_FILES['firstid']['name'];
+    $type_firstid= $_FILES['firstid']['type'];
+    $data_firstid= addslashes(file_get_contents($_FILES['firstid']['tmp_name']));
+
+  //image 
+  $name_secondid= $_FILES['secondid']['name'];
+    $type_secondid= $_FILES['secondid']['type'];
+    $data_secondid= addslashes(file_get_contents($_FILES['secondid']['tmp_name']));
+
+
   
     
-      $sql  = "INSERT INTO `mortgages`( `ref_no`, `loan_amount`, `loan_terms`,`fname`, `mname`, `lname`, `sex`, `civil_status`,`perma_address`, `date_0f_birth`, `place_of_birth`, `mobile_no`, `email_address`, `tin_sss_gsis_no`, `source_of_income`, `monthly_income`, `employeer_name`,`position`,`companyname`,`bankname`,`accountnum`, `firstid`, `secondid`, `thirdid`) VALUES ('$house_id','$L_amount','$L_term','$F_name','$M_name','$L_name','$sex','$civil_status','$perma_address','$d_birth','$p_birth','$m_number','$e_address','$tin_sss_gsis_no','$source_income','$monthly_income','$employeer_name','$position','$companyname','$bankname','$accountnum','$firstid','$secondid','$thirdid')";
+      $sql  = "INSERT INTO `mortgages`( `ref_no`, `loan_amount`, `loan_terms`,`fname`, `mname`, `lname`, `sex`, `civil_status`,`perma_address`, `date_0f_birth`, `place_of_birth`, `mobile_no`, `email_address`, `tin_sss_gsis_no`, `source_of_income`, `monthly_income`, `employeer_name`,`position`,`companyname`,`bankname`,`accountnum`,`name_firstid`,`type_firstid`,`data_firstid`,`name_secondid`,`type_secondid`, `data_secondid`) VALUES ('$house_id','$L_amount','$L_term','$F_name','$M_name','$L_name','$sex','$civil_status','$perma_address','$d_birth','$p_birth','$m_number','$e_address','$tin_sss_gsis_no','$source_income','$monthly_income','$employeer_name','$position','$companyname','$bankname','$accountnum','$name_firstid', '$type_firstid','$data_firstid','$name_secondid','$type_secondid','$data_secondid')";
 
       $query="INSERT INTO `loan_processing_approval`(`id`, `accountnum`,`Full_Name`, `Ref_Number`, `Type_of_loan`, `Amount_loan`, `Status`) VALUES ('','$accountnum','$fullname ','$house_id','House Loan','$L_amount','Pending')";
 
-if ($con1->query($sql)===TRUE AND $con2->query($query)===TRUE) {
+              if ($con1->query($sql)===TRUE AND $con2->query($query)===TRUE) {
                 echo '<script type="text/javascript">
                     swal("", "Succesfully Encoded", "success").then(function() {
                     window.location = "houseloann.php";});
@@ -71,7 +79,7 @@ if ($con1->query($sql)===TRUE AND $con2->query($query)===TRUE) {
   <!--Appplication Form -->
     <div class="applcation_form">
 
-         <form method="POST">
+         <form method="POST"  enctype="multipart/form-data">
 
          <table class="table table-bordeless">
          </table>
@@ -168,22 +176,17 @@ if ($con1->query($sql)===TRUE AND $con2->query($query)===TRUE) {
               <td><label>Account Number:</label><input type="number"  name="accountnum" id="formControlLg" class="form-control form-control-lg" placeholder="Account Number" required /></td>
             </tr>
 
-                <td>
+               <td>
                  <label style="color: red ;"> *If employeed upload your copy of pay slip for verification. </label> <br>
                 </td>
-              <td colspan="2"><span>Please upload your ID picture</span> <input type="file" name="firstid" id="formControlLg" class="form-control form-control-lg" /></td>
+              <td colspan="2"><span>Please upload your Pay Slip</span> <input type="file" name="firstid" id="inputGroupFile01" class="form-control form-control-lg"></td>
               </tr>
               <tr>
                 <td>
                  <label style="color: red ;"> *Please upload your ID here. </label> <br>
                 </td>
-              <td colspan="2"><span>Please upload your ID picture</span> <input type="file" name="secondid" id="formControlLg" class="form-control form-control-lg" required /></td>
+              <td colspan="2"><span>Please upload your ID picture</span> <input type="file" name="secondid" id="inputGroupFile01" class="form-control form-control-lg" required></td>
               </tr>
-              <tr>
-                <td>
-                 <label style="color: red ;"> *Please upload your ID here. </label> <br>
-                </td>
-              <td colspan="2"><span>Please upload your ID picture</span> <input type="file" name="thirdid" id="formControlLg" class="form-control form-control-lg" required /></td>
             </tr>
 
 

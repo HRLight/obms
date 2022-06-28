@@ -54,9 +54,17 @@ $i=generatekey();
   $guarantor_id_type = $_POST['g-idtype'];
   $guarantor_id_number = $_POST['g-idnumber'];
   $guarantor_phone_number = $_POST['g-pnumber'];
-  $fid = $_POST['fid'];
-  $sid = $_POST['sid'];
-  $tid = $_POST['tid'];
+
+
+   //image 
+    $name_firstid= $_FILES['firstid']['name'];
+    $type_firstid= $_FILES['firstid']['type'];
+    $data_firstid= addslashes(file_get_contents($_FILES['firstid']['tmp_name']));
+
+  //image 
+  $name_secondid= $_FILES['secondid']['name'];
+    $type_secondid= $_FILES['secondid']['type'];
+    $data_secondid= addslashes(file_get_contents($_FILES['secondid']['tmp_name']));
 
 
    $sql  = "INSERT INTO `personal_loan`(`id`, `first_name`, `middle_name`, `last_name`, `birthdate`, `birth_place`,`gender`, `phone_no`, `email`, `type_of_id`, `id_no`, `perma_address`, `civil_status`, `place_of_work`, `job_title`, `years_of_employeed`, `monthly_income`,`lamount`, `purpose_of_loan`, `loan_term`,`companyname`,`bankname`,`accountnum`, `guarantor_name`, `relation`, `guarantor_place_of_work`, `guarantor_income`, `guarantor_id_type`, `guarantor_id_number`, `guarantor_phone_number`, `fid`, `sid`, `tid`) VALUES ('$house_id','  $first_name','$middle_name','$last_name','$birthdate','$birth_place','$gender','$phone_no','$email','$type_of_id','$id_no','$perma_address','$civil_status','$place_of_work','$job_title','$years_of_employeed','$monthly_income','$lamount','$purpose_of_loan','$loan_term','$companyname','$bankname','$accountnum','$guarantor_name','$relation','$guarantor_place_of_work','$guarantor_income','$guarantor_id_type','$guarantor_id_number','$guarantor_phone_number','$fid','$sid','$tid')";
@@ -206,22 +214,18 @@ if ($con1->query($sql)===TRUE AND $con2->query($query)===TRUE) {
               <td colspan="2"><label>Guarantor Phone Number :</label> <input type="number" name="g-pnumber" id="formControlLg" class="form-control form-control-lg" placeholder="Guarantor Phone Number" required /></td>
             </tr>
 
+            
                 <td>
                  <label style="color: red ;"> *If employeed upload your copy of pay slip for verification. </label> <br>
                 </td>
-              <td colspan="2"><span>Please upload your ID picture</span> <input type="file" name="fid" id="formControlLg" class="form-control form-control-lg" /></td>
+              <td colspan="2"><span>Please upload your Pay Slip</span> <input type="file" name="firstid" id="inputGroupFile01" class="form-control form-control-lg"></td>
               </tr>
               <tr>
                 <td>
                  <label style="color: red ;"> *Please upload your ID here. </label> <br>
                 </td>
-              <td colspan="2"><span>Please upload your ID picture</span> <input type="file" name="sid" id="formControlLg" class="form-control form-control-lg" required /></td>
+              <td colspan="2"><span>Please upload your ID picture</span> <input type="file" name="secondid" id="inputGroupFile01" class="form-control form-control-lg" required></td>
               </tr>
-              <tr>
-                <td>
-                 <label style="color: red ;"> *Please upload your ID here. </label> <br>
-                </td>
-              <td colspan="2"><span>Please upload your ID picture</span> <input type="file" name="tid" id="formControlLg" class="form-control form-control-lg" required /></td>
             </tr>
 
          </thead>
